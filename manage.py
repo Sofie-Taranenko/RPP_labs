@@ -13,3 +13,9 @@ async def payload(Request: RequestBody):
                                          values (%s,%s,%s);""", (i.code, i.rate, id_cur,))
             conn.commit()
         raise HTTPException(200)
+    except:
+        raise HTTPException(500)
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, port=10670, host='localhost')
